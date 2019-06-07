@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>trivy</id>
+    <title>Trivy</title>
+    <version>0.1.1</version>
+    <authors>Teppei Fukuda</authors>
+    <owners>Marcin Bojko</owners>
+    <summary>A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI</summary>
+    <description>
+# Trivy
+
+## Description
+
+A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI - [https://github.com/knqyf263/trivy](https://github.com/knqyf263/trivy)
+
+## Features
+
+* Install and uninstall via Chocolatey
+* Supports 32 and 64-bit version
+
+## Dependencies
+
+Due to proper usage and DB update, package `git` is required.
+
+## Changelog
+
+### 2019-05-27 Build 0.1.1
+
+* version 0.1.1
+* 64-bit version - [https://www.virustotal.com/#/file/1478078ae8957d697f576572f0f8f7e7abb6fe27fc62afdc16adcd1f511ab150/detection](https://www.virustotal.com/#/file/1478078ae8957d697f576572f0f8f7e7abb6fe27fc62afdc16adcd1f511ab150/detection)
+* 32-bit version - [https://www.virustotal.com/#/file/2585154eac2bdf6f273b580cfc7647a854ec6a8d98e2fb8696bace8d5d383545/detection](https://www.virustotal.com/#/file/2585154eac2bdf6f273b580cfc7647a854ec6a8d98e2fb8696bace8d5d383545/detection)
+
+## Usage
+
+### Package Parameters
+
+* /RefreshDB = (Yes/No) - If set to "Yes", after instalation Trivy will reset and update databases.
+
+  If not set "No" is default answer
+
+  Without `git` package instalation can take a while
+
+### Direct
+
+```
+choco install trivy -y
+```
+
+or with DB update during instalation
+
+```
+choco install trivy -y --params "/RefreshDB=Yes"
+```
+
+### YAML (Foreman, puppetlabs/chocolatey module)
+
+```
+trivy:
+  ensure: latest
+  provider: chocolatey
+```
+
+or
+
+```
+trivy:
+  ensure: latest
+```
+
+    </description>
+    <projectUrl>https://github.com/knqyf263/trivy</projectUrl>
+    <packageSourceUrl>https://github.com/marcinbojko/trivy</packageSourceUrl>
+    <docsUrl>https://github.com/knqyf263/trivy</docsUrl>
+    <iconUrl>https://raw.githubusercontent.com/marcinbojko/trivy/master/icons/trivy.png</iconUrl>
+    <projectSourceUrl>https://github.com/knqyf263/trivy</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/knqyf263/trivy/issues</bugTrackerUrl>
+    <tags>trivy ci scan security docker image admin</tags>
+    <copyright>Teppei Fukuda</copyright>
+    <licenseUrl>https://raw.githubusercontent.com/knqyf263/trivy/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>https://github.com/knqyf263/trivy/releases</releaseNotes>
+    <dependencies>
+      <dependency id="git" />
+    </dependencies>
+  </metadata>
+    <files>
+      <file src="tools\**" target="tools" />
+      <file src="icons\**" target="icons" />
+    </files>
+</package>
