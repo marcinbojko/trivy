@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>trivy</id>
     <title>Trivy</title>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <authors>Teppei Fukuda</authors>
     <owners>Marcin Bojko</owners>
     <summary>A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI</summary>
@@ -27,6 +27,10 @@ Due to proper usage and DB update, package `git` is required.
 
 ## Changelog
 
+### 2019-06-07 Build 0.1.2
+
+* version 0.1.2
+
 ### 2019-05-27 Build 0.1.1
 
 * version 0.1.1
@@ -39,7 +43,7 @@ Due to proper usage and DB update, package `git` is required.
 
 * /RefreshDB = (Yes/No) - If set to "Yes", after instalation Trivy will reset and update databases.
 
-  If not set "No" is default answer
+  If not set, then "No" is default answer
 
   Without `git` package instalation can take a while
 
@@ -83,7 +87,7 @@ trivy:
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>https://github.com/knqyf263/trivy/releases</releaseNotes>
     <dependencies>
-      <dependency id="git" />
+      <dependency id="git" version="2.17.0" />
     </dependencies>
   </metadata>
     <files>

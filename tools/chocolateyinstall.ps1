@@ -1,11 +1,11 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName        = 'trivy'
-$version            = '0.1.1'
+$version            = '0.1.2'
 $url64              = "https://github.com/knqyf263/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-64bit.zip"
 $url                = "https://github.com/knqyf263/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-32bit.zip"
-$checksum64         = "1478078ae8957d697f576572f0f8f7e7abb6fe27fc62afdc16adcd1f511ab150"
-$checksum           = "2585154eac2bdf6f273b580cfc7647a854ec6a8d98e2fb8696bace8d5d383545"
+$checksum64         = "87ce3770bbd20027703a07c0d8916a387685f94a8b70cfcf475804180c0420d3"
+$checksum           = "002bca245d19803ceaf18f734ddd5303f7fb468cdfdf54bed060be44c0cff3d7"
 $bindir             = Join-Path $env:ChocolateyInstall "lib\trivy\tools\trivy.exe"
 
 [regex]$refreshdbparams = “(?i)^(Yes|No)$”
@@ -31,7 +31,7 @@ $packageArgs = @{
 
 Install-ChocolateyZipPackage @packageArgs
 
-Write-Output $bindir
+# Write-Output $bindir
 try {
     if ($($pp.RefreshDB) -eq "Yes") {
       Write-Output "Updating Trivy databases - it can take a while"

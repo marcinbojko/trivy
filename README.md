@@ -11,9 +11,13 @@ A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
 
 ## Dependencies
 
-Due to proper usage and DB update, package `git` is required.
+Due to proper usage and DB update, package `git` is required, minimal dependency version is `2.17.0`
 
 ## Changelog
+
+### 2019-06-07 Build 0.1.2
+
+* version 0.1.2
 
 ### 2019-05-27 Build 0.1.1
 
@@ -27,7 +31,7 @@ Due to proper usage and DB update, package `git` is required.
 
 * /RefreshDB = (Yes/No) - If set to "Yes", after instalation Trivy will reset and update databases.
 
-  If not set "No" is default answer
+  If not set, then "No" is default answer
 
   Without `git` package instalation can take a while
 
