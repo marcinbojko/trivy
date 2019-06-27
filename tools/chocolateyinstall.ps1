@@ -1,11 +1,11 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName        = 'trivy'
-$version            = '0.1.2'
+$version            = '0.1.3'
 $url64              = "https://github.com/knqyf263/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-64bit.zip"
 $url                = "https://github.com/knqyf263/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-32bit.zip"
-$checksum64         = "87ce3770bbd20027703a07c0d8916a387685f94a8b70cfcf475804180c0420d3"
-$checksum           = "002bca245d19803ceaf18f734ddd5303f7fb468cdfdf54bed060be44c0cff3d7"
+$checksum64         = "8cae9608f023f4d6f13528f2ff8c838ec5a2442a861d24f8d2c8257ea19cb58f"
+$checksum           = "29edcf6a5f5271d3ef548be9850f093e39316f50e1d78988e8bb9ec2eca88a00"
 $bindir             = Join-Path $env:ChocolateyInstall "lib\trivy\tools\trivy.exe"
 
 [regex]$refreshdbparams = “(?i)^(Yes|No)$”
@@ -13,9 +13,10 @@ $bindir             = Join-Path $env:ChocolateyInstall "lib\trivy\tools\trivy.ex
 $pp=Get-PackageParameters
 if (!$pp['RefreshDB']) {$pp['RefreshDB']='No'}
 else {
-    if ($pp['RefreshDB'] -notmatch $refreshdbparams)
-        { Write-Output "Wrong value $($pp.RefreshDB) for parameter RefreshDB"
-         exit (1) }
+    if ($pp['RefreshDB'] -notmatch $refreshdbparams) {
+      Write-Output "Wrong value $($pp.RefreshDB) for parameter RefreshDB"
+      exit (1)
+    }
 }
 $packageArgs = @{
   packageName     = $packageName
@@ -38,7 +39,7 @@ try {
       & $bindir '--reset'
       & $bindir '--refresh' '--quiet'
     }
-  }
+}
 catch {
   # We don't care about updates, if they'll fail, do not fail package
   exit (0)
