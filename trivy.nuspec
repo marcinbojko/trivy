@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>trivy</id>
     <title>Trivy</title>
-    <version>0.1.4</version>
+    <version>0.1.5</version>
     <authors>Teppei Fukuda</authors>
     <owners>Marcin Bojko</owners>
     <summary>A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI</summary>
@@ -14,7 +14,7 @@
 
 ## Description
 
-A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI - [https://github.com/knqyf263/trivy](https://github.com/knqyf263/trivy)
+A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI - [https://github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy)
 
 ## Features
 
@@ -26,6 +26,10 @@ A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
 Due to proper usage and DB update, package `git` is required.
 
 ## Changelog
+
+### 2019-08-22 Build 0.1.5
+
+* version 0.1.5
 
 ### 2019-07-08 Build 0.1.4
 
@@ -86,7 +90,7 @@ trivy:
     <projectUrl>https://github.com/knqyf263/trivy</projectUrl>
     <packageSourceUrl>https://github.com/marcinbojko/trivy</packageSourceUrl>
     <docsUrl>https://github.com/knqyf263/trivy</docsUrl>
-    <iconUrl>https://raw.githubusercontent.com/marcinbojko/trivy/master/icons/trivy.png</iconUrl>
+    <iconUrl>https://rawcdn.githack.com/marcinbojko/trivy/92c16e28c76302e9aea9ebe8d905bccdf3fb7eeb/icons/trivy.png</iconUrl>
     <bugTrackerUrl>https://github.com/knqyf263/trivy/issues</bugTrackerUrl>
     <tags>trivy ci scan security docker image admin</tags>
     <copyright>Teppei Fukuda</copyright>
@@ -99,6 +103,5 @@ trivy:
   </metadata>
     <files>
       <file src="tools\**" target="tools" />
-      <file src="icons\**" target="icons" />
     </files>
 </package>

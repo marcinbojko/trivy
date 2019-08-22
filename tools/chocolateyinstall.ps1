@@ -1,11 +1,11 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName        = 'trivy'
-$version            = '0.1.4'
-$url64              = "https://github.com/knqyf263/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-64bit.zip"
-$url                = "https://github.com/knqyf263/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-32bit.zip"
-$checksum64         = "e26a2fcc11bd12b8fc4d2acf1ed0fd8241d992bd6c0c245fd99d468c1cb257fe"
-$checksum           = "5c6c905d08b1df9ef662254db49a75d8c2dd082309b1485c564d48e3aa42addc"
+$version            = '0.1.5'
+$url64              = "https://github.com/aquasecurity/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-64bit.zip"
+$url                = "https://github.com/aquasecurity/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-32bit.zip"
+$checksum64         = "2d762065d17795f589be8825dcd53d4b9e7112203ecaa73f5343957750520351"
+$checksum           = "dc71f31a8e309135c32282d41d82ce3b6230ae3486b89a9ffdfc146e9b11f155"
 $bindir             = Join-Path $env:ChocolateyInstall "lib\trivy\tools\trivy.exe"
 
 [regex]$refreshdbparams = “(?i)^(Yes|No)$”

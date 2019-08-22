@@ -2,7 +2,7 @@
 
 ## Description
 
-A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI - [https://github.com/knqyf263/trivy](https://github.com/knqyf263/trivy)
+A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI - [https://github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy)
 
 ## Features
 
@@ -14,6 +14,10 @@ A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
 Due to proper usage and DB update, package `git` is required, minimal dependency version is `2.17.0`
 
 ## Changelog
+
+### 2019-08-22 Build 0.1.5
+
+* version 0.1.5
 
 ### 2019-07-08 Build 0.1.4
 
