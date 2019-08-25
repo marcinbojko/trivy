@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>trivy</id>
     <title>Trivy</title>
-    <version>0.1.5</version>
+    <version>0.1.6</version>
     <authors>Teppei Fukuda</authors>
     <owners>Marcin Bojko</owners>
     <summary>A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI</summary>
@@ -26,6 +26,10 @@ A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
 Due to proper usage and DB update, package `git` is required.
 
 ## Changelog
+
+### 2019-08-25 Build 0.1.6
+
+* version 0.1.6
 
 ### 2019-08-22 Build 0.1.5
 
@@ -87,16 +91,16 @@ trivy:
 ```
 
     </description>
-    <projectUrl>https://github.com/knqyf263/trivy</projectUrl>
+    <projectUrl>https://github.com/aquasecurity/trivy</projectUrl>
     <packageSourceUrl>https://github.com/marcinbojko/trivy</packageSourceUrl>
-    <docsUrl>https://github.com/knqyf263/trivy</docsUrl>
+    <docsUrl>https://github.com/aquasecurity/trivy</docsUrl>
     <iconUrl>https://rawcdn.githack.com/marcinbojko/trivy/92c16e28c76302e9aea9ebe8d905bccdf3fb7eeb/icons/trivy.png</iconUrl>
-    <bugTrackerUrl>https://github.com/knqyf263/trivy/issues</bugTrackerUrl>
+    <bugTrackerUrl>https://github.com/aquasecurity/trivy/issues</bugTrackerUrl>
     <tags>trivy ci scan security docker image admin</tags>
     <copyright>Teppei Fukuda</copyright>
-    <licenseUrl>https://raw.githubusercontent.com/knqyf263/trivy/master/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/aquasecurity/trivy/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>https://github.com/knqyf263/trivy/releases</releaseNotes>
+    <releaseNotes>https://github.com/aquasecurity/trivy/releases</releaseNotes>
     <dependencies>
       <dependency id="git" version="2.17.0" />
     </dependencies>
