@@ -15,6 +15,10 @@ Due to proper usage and DB update, package `git` is required, minimal dependency
 
 ## Changelog
 
+### 2019-11-14 Build 0.1.7
+
+* version 0.1.7
+
 ### 2019-08-25 Build 0.1.6
 
 * version 0.1.6

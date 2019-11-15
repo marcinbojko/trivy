@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>trivy</id>
     <title>Trivy</title>
-    <version>0.1.6</version>
+    <version>0.1.7</version>
     <authors>Teppei Fukuda</authors>
     <owners>Marcin Bojko</owners>
     <summary>A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI</summary>
@@ -26,6 +26,10 @@ A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
 Due to proper usage and DB update, package `git` is required.
 
 ## Changelog
+
+### 2019-11-14 Build 0.1.7
+
+* version 0.1.7
 
 ### 2019-08-25 Build 0.1.6
 
