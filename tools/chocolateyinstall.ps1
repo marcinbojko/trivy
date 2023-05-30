@@ -1,9 +1,9 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName        = 'trivy'
-$version            = '0.36.1'
+$version            = '0.37.0'
 $url64              = "https://github.com/aquasecurity/trivy/releases/download/v"+$version+"/trivy_"+$version+"_Windows-64bit.zip"
-$checksum64         = '88ee9c0e4d76b8c9a8e6f0802c296bed16eca0221d143d9d204d69a5cd2f76d4'
+$checksum64         = 'f4fbf330680185bb663ba7e65210b5aa5d5f675a26c33a8ef1f6de5450b3a452'
 $bindir             = Join-Path $env:ChocolateyInstall "lib\trivy\tools\trivy.exe"
 
 [regex]$downloaddatabaseonly = “(?i)^(Yes|No)$”

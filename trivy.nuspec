@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>trivy</id>
     <title>Trivy</title>
-    <version>0.36.1</version>
+    <version>0.37.0</version>
     <authors>Teppei Fukuda</authors>
     <owners>Marcin Bojko</owners>
     <summary>A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI</summary>
@@ -19,21 +19,15 @@ A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
 ## Features
 
 * Install and uninstall via Chocolatey
-* Supports 32 and 64-bit version
-
-## Dependencies
-
-Due to proper usage and DB update, package `git` is required.
+* Supports only 64bit version
 
 ## Usage
 
 ### Package Parameters
 
-* /RefreshDB = (Yes/No) - If set to "Yes", after instalation Trivy will reset and update databases.
+* /DownloadDatabaseOnly = (Yes/No) - If set to "Yes", after instalation Trivy will update DB only
 
   If not set, then "No" is default answer
-
-  Without `git` package instalation can take a while
 
 ### Direct
 
@@ -44,7 +38,7 @@ choco install trivy -y
 or with DB update during instalation
 
 ```
-choco install trivy -y --params "/RefreshDB=Yes"
+choco install trivy -y --params "//DownloadDatabaseOnly=Yes"
 ```
 
 ### YAML (Foreman, puppetlabs/chocolatey module)
@@ -73,9 +67,6 @@ trivy:
     <licenseUrl>https://raw.githubusercontent.com/aquasecurity/trivy/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>https://github.com/aquasecurity/trivy/releases</releaseNotes>
-    <dependencies>
-      <dependency id="git" version="2.40.1" />
-    </dependencies>
   </metadata>
     <files>
       <file src="tools\**" target="tools" />
