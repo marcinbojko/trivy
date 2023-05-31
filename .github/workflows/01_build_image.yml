@@ -17,15 +17,30 @@ jobs:
         with:
           args: pack
       -
-        name: Choco install git
-        uses: crazy-max/ghaction-chocolatey@v2
-        with:
-          args: install git -y
-      -
         name: Choco install
         uses: crazy-max/ghaction-chocolatey@v2
         with:
           args: install trivy -y -s .
+      - name: Trivy run
+        run: |
+          trivy version
+        shell: powershell
+  build-2019-params:
+    runs-on: windows-2019
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Choco pack
+        uses: crazy-max/ghaction-chocolatey@v2
+        with:
+          args: pack
+      -
+        name: Choco install
+        uses: crazy-max/ghaction-chocolatey@v2
+        with:
+          args: install trivy -y -s . --params "/DownloadDatabaseOnly=Yes"
       - name: Trivy run
         run: |
           trivy version
@@ -42,11 +57,6 @@ jobs:
         uses: crazy-max/ghaction-chocolatey@v2
         with:
           args: pack
-      -
-        name: Choco install git
-        uses: crazy-max/ghaction-chocolatey@v2
-        with:
-          args: install git -y
       -
         name: Choco install
         uses: crazy-max/ghaction-chocolatey@v2

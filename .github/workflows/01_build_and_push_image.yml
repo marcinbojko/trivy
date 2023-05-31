@@ -17,11 +17,6 @@ jobs:
         with:
           args: pack
       -
-        name: Choco install git
-        uses: crazy-max/ghaction-chocolatey@v2
-        with:
-          args: install git -y
-      -
         name: Choco install
         uses: crazy-max/ghaction-chocolatey@v2
         with:
@@ -41,11 +36,6 @@ jobs:
         uses: crazy-max/ghaction-chocolatey@v2
         with:
           args: pack
-      -
-        name: Choco install git
-        uses: crazy-max/ghaction-chocolatey@v2
-        with:
-          args: install git -y
       -
         name: Choco install
         uses: crazy-max/ghaction-chocolatey@v2
