@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>trivy</id>
     <title>Trivy</title>
-    <version>0.46.1</version>
+    <version>0.47.0</version>
     <authors>Teppei Fukuda</authors>
     <owners>Marcin Bojko</owners>
     <summary>A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI</summary>

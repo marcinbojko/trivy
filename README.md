@@ -23,7 +23,6 @@ Consider buying me a coffee if you like my work. All donations are appreciated. 
 
 <!-- /TOC -->
 
-
 ## Description
 
 A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI - [https://github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy)
