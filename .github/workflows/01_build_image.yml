@@ -10,15 +10,15 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Choco pack
-        uses: crazy-max/ghaction-chocolatey@v2
+        uses: crazy-max/ghaction-chocolatey@v3
         with:
           args: pack
       -
         name: Choco install
-        uses: crazy-max/ghaction-chocolatey@v2
+        uses: crazy-max/ghaction-chocolatey@v3
         with:
           args: install trivy -y -s .
       - name: Trivy run
@@ -30,15 +30,15 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Choco pack
-        uses: crazy-max/ghaction-chocolatey@v2
+        uses: crazy-max/ghaction-chocolatey@v3
         with:
           args: pack
       -
         name: Choco install
-        uses: crazy-max/ghaction-chocolatey@v2
+        uses: crazy-max/ghaction-chocolatey@v3
         with:
           args: install trivy -y -s . --params "/DownloadDatabaseOnly=Yes"
       - name: Trivy run
@@ -51,15 +51,15 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Choco pack
-        uses: crazy-max/ghaction-chocolatey@v2
+        uses: crazy-max/ghaction-chocolatey@v3
         with:
           args: pack
       -
         name: Choco install
-        uses: crazy-max/ghaction-chocolatey@v2
+        uses: crazy-max/ghaction-chocolatey@v3
         with:
           args: install trivy -y -s .
       - name: Trivy run
@@ -68,7 +68,6 @@ jobs:
         shell: powershell
       -
         name: Choco push
-        uses: crazy-max/ghaction-chocolatey@v2
+        uses: crazy-max/ghaction-chocolatey@v3
         with:
           args: push --source https://www.myget.org/F/public-choco-dev/api/v2/package -k=${{ secrets.MYGET_API_KEY }}
-
