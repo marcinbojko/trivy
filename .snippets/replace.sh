@@ -30,7 +30,6 @@ fi
 git checkout test
 git pull
 
-
 echo -e "${GREEN}Extracting version and id from $file...${NC}"
 version=$($grep_command -oPm1 "(?<=<version>)[^<]+" "$file")
 id=$($grep_command -oPm1 "(?<=<id>)[^<]+" "$file")
@@ -72,15 +71,14 @@ if [ -n "$version" ] && [ -n "$checksum64" ]; then
         echo "Tag already exists: $version"
     else
     # Create the tag
-    git tag "$version"
-    git push origin "$version"
     git add -A
     git commit -m "Version ${version}"
+    git tag "$version"
+    git push origin "$version"
     # Push the tag to the remote repository
     #
     echo "Tag created and pushed: $version"
     fi
-
 
 else
     echo -e "${RED}Error: version or checksum is/are empty.${NC}"
