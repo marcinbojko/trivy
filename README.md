@@ -36,9 +36,9 @@ A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
 
 ### Package Parameters
 
- /DownloadDatabaseOnly = (Yes/No) - If set to "Yes", after instalation Trivy will update DB only
+/DownloadDatabaseOnly = (Yes/No) - If set to "Yes", after instalation Trivy will update DB only
 
-  If not set, then "No" is default answer
+If not set, then "No" is default answer
 
 ### Direct
 
