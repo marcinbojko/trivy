@@ -85,7 +85,7 @@ if [ -n "$version" ] && [ -n "$checksum64" ]; then
 		#git push origin "$version"
 		# Push the tag to the remote repository
 		#
-		echo "Tag created and pushed: $version"
+		echo "Tag created: $version"
 	fi
 
 else
