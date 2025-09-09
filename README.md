@@ -7,9 +7,9 @@
 ![Windows10](https://img.shields.io/badge/Windows-10-lightblue)
 ![Windows11](https://img.shields.io/badge/Windows-11-lightblue)
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/marcinbojko)
+>[!IMPORTANT]
+>The original Chocolatey configuration was maintained by [marcinbojko](https://github.com/marcinbojko), thanks for the initial work and for seamlessly transitioning the maintenance to Aqua Security!
 
-Consider buying me a coffee if you like my work. All donations are appreciated. All donations will be used to pay for pipeline running costs
 
 <!-- TOC -->
 
@@ -19,7 +19,7 @@ Consider buying me a coffee if you like my work. All donations are appreciated. 
   - [Usage](#usage)
     - [Package Parameters](#package-parameters)
     - [Direct](#direct)
-    - [YAML Foreman, puppetlabs/chocolatey module](#yaml-foreman-puppetlabschocolatey-module)
+    - [YAML (Foreman, puppetlabs/chocolatey module)](#yaml-foreman-puppetlabschocolatey-module)
 
 <!-- /TOC -->
 

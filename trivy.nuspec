@@ -5,10 +5,10 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>trivy</id>
     <title>Trivy</title>
-    <version>0.65.0</version>
+    <version>0.66.0</version>
     <authors>Teppei Fukuda</authors>
-    <owners>Marcin Bojko</owners>
-    <summary>A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI</summary>
+    <owners>Aqua Security</owners>
+    <summary>Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more</summary>
     <description>
 # Trivy
 ## Description
@@ -56,12 +56,12 @@ trivy:
 ```
     </description>
     <projectUrl>https://github.com/aquasecurity/trivy</projectUrl>
-    <packageSourceUrl>https://github.com/marcinbojko/trivy</packageSourceUrl>
+    <packageSourceUrl>https://github.com/aquasecurity/trivy-chocolatey</packageSourceUrl>
     <docsUrl>https://github.com/aquasecurity/trivy</docsUrl>
-    <iconUrl>https://rawcdn.githack.com/marcinbojko/trivy/92c16e28c76302e9aea9ebe8d905bccdf3fb7eeb/icons/trivy.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/aquasecurity/trivy-vscode-extension/refs/heads/master/images/icon.png</iconUrl>
     <bugTrackerUrl>https://github.com/aquasecurity/trivy/issues</bugTrackerUrl>
     <tags>trivy ci scan security docker image admin</tags>
-    <copyright>Teppei Fukuda</copyright>
+    <copyright>Aqua Security</copyright>
     <licenseUrl>https://raw.githubusercontent.com/aquasecurity/trivy/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>https://github.com/aquasecurity/trivy/releases</releaseNotes>
