@@ -5,42 +5,14 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}Determining operating system...${NC}"
-unameOut="$(uname -s)"
-case "${unameOut}" in
-Linux*)
-	machine="Linux"
-	grep_command="grep"
-	sed_binary="sed"
-	;;
-Darwin*)
-	machine="Mac"
-	grep_command="ggrep"
-	sed_binary="gsed"
-	;;
-*) machine="UNKNOWN:${unameOut}" ;;
-esac
-printf "%-30s %s\n" "Operating system:" "${machine}"
-
 file="../trivy.nuspec"
 powershell="../tools/chocolateyinstall.ps1"
-
-if [[ ! -f "$file" ]]; then
-	echo -e "${RED}File $file does not exist. Exiting.${NC}"
-	exit 1
-fi
-
-if [[ ! -f "$powershell" ]]; then
-	echo -e "${RED}File $powershell does not exist. Exiting.${NC}"
-	exit 1
-fi
-
-git checkout test
-git pull
+sed_binary="sed" # or "gsed" for macOS with gnu-sed installed via brew
+awk_binary="awk" # or "gawk" for macOS with gnu-awk installed via brew
 
 echo -e "${GREEN}Extracting version and id from $file...${NC}"
-version=$($grep_command -oPm1 "(?<=<version>)[^<]+" "$file")
-id=$($grep_command -oPm1 "(?<=<id>)[^<]+" "$file")
+version=$($awk_binary -F'[><]' '/<version>/ {print $3}' "$file")
+id=$($awk_binary -F'[><]' '/<id>/ {print $3}' "$file")
 url64=https://github.com/aquasecurity/"$id"/releases/download/v"$version"/"$id"_"$version"_windows-64bit.zip
 checksum64_file=https://github.com/aquasecurity/"$id"/releases/download/v"$version"/"$id"_"$version"_checksums.txt
 checksum64=$(curl -sL "$checksum64_file" | grep windows-64bit.zip | awk '{print $1}')
