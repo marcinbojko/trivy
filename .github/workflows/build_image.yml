@@ -1,13 +1,12 @@
 name: Build and Push Chocolatey Package
 # Start
 on:
-  push:
-    branches: [main, master, test]
-    tags:
-      - "*.*.*"
-  pull_request:
-    branches: [main, master]
   workflow_dispatch: # Allows manual triggering
+    inputs:
+      version:
+        description: 'The version to update to (leave empty to auto-detect latest)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -26,12 +25,50 @@ permissions:
   statuses: write # Added
 
 jobs:
+  # run the update script on ubuntu and push the changes to main branch
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Set Trivy version from input
+        id: set_version
+        run: |
+          # Remove "v" prefix if present
+          incoming_version="${{ github.event.inputs.version }}"
+          echo "version=${incoming_version#v}" >> $GITHUB_OUTPUT
+
+      - name: Run update script
+        run: |
+          ./scripts/update.sh "${{ steps.set_version.outputs.version }}"
+
+      - name: Commit and push changes
+        run: |
+          git add trivy.nuspec tools/chocolateyinstall.ps1
+          git commit -m "Update package to latest version" || echo "No changes to commit"
+          git push origin HEAD:${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # on windows latest, build and push the package to chocolatey.org and myget.org
   build-and-push:
-    uses: marcinbojko/reusable-workflows/.github/workflows/chocolatey_build_and_push.yml@main
-    with:
-      package_name: "trivy" # Replace with your package name
-      package_source_main: "https://push.chocolatey.org/"
-      package_source_test: "https://www.myget.org/F/public-choco-dev/api/v2/package"
-    secrets:
-      CHOCO_API_KEY: ${{ secrets.CHOCO_API_KEY }}
-      MYGET_API_KEY: ${{ secrets.MYGET_API_KEY }}
+    runs-on: windows-latest
+    needs: update
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3   
+
+      - name: pack the project
+        run: |
+          choco apikey -k ${env:CHOCO_API_KEY} -s https://push.chocolatey.org/
+          choco pack
+          # choco push -s https://push.chocolatey.org/
+        env:
+          CHOCO_API_KEY: ${{ secrets.CHOCO_API_KEY }}
+

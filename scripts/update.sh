@@ -5,13 +5,15 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-file="../trivy.nuspec"
-powershell="../tools/chocolateyinstall.ps1"
-sed_binary="sed" # or "gsed" for macOS with gnu-sed installed via brew
-awk_binary="awk" # or "gawk" for macOS with gnu-awk installed via brew
+file="trivy.nuspec"
+powershell="tools/chocolateyinstall.ps1"
+version="$1"
+
+sed_binary="sed" 
+awk_binary="awk" 
 
 echo -e "${GREEN}Extracting version and id from $file...${NC}"
-version=$($awk_binary -F'[><]' '/<version>/ {print $3}' "$file")
+existingVersion=$($awk_binary -F'[><]' '/<version>/ {print $3}' "$file")
 id=$($awk_binary -F'[><]' '/<id>/ {print $3}' "$file")
 url64=https://github.com/aquasecurity/"$id"/releases/download/v"$version"/"$id"_"$version"_windows-64bit.zip
 checksum64_file=https://github.com/aquasecurity/"$id"/releases/download/v"$version"/"$id"_"$version"_checksums.txt
@@ -43,22 +45,12 @@ fi
 
 if [ -n "$version" ] && [ -n "$checksum64" ]; then
 	echo -e "${GREEN}Version and checksum are not empty. Updating $powershell...${NC}"
-	"$sed_binary" -i "s|^\$version.*|\$version            = '$version'|g" "$powershell"
-	"$sed_binary" -i "s|^\$checksum64.*|\$checksum64         = '$checksum64'|g" "$powershell"
+	"$sed_binary" -i .bak "s|^\$version.*|\$version            = '$version'|g" "$powershell"
+	"$sed_binary" -i .bak "s|^\$checksum64.*|\$checksum64         = '$checksum64'|g" "$powershell"
 	echo "Updated $powershell with new version and checksum."
-	# Check if the tag exists
-	if git rev-parse --quiet --verify "$version" >/dev/null; then
-		echo "Tag already exists: $version"
-	else
-		# Create the tag
-		git add -A
-		git commit -m "Version ${version}"
-		git tag "$version"
-		#git push origin "$version"
-		# Push the tag to the remote repository
-		#
-		echo "Tag created: $version"
-	fi
+	echo -e "${GREEN}Updating $file...${NC}"
+	"$sed_binary" -i .bak "s|<version>.*</version>|<version>$version</version>|g" "$file"
+	echo "Updated $file with new version."
 
 else
 	echo -e "${RED}Error: version or checksum is/are empty.${NC}"
